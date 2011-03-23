@@ -1,5 +1,5 @@
 %define oname gdl
-%define version 2.90.0
+%define version 2.91.92
 %define release %mkrel 1
 %define api 3
 %define major 1
@@ -19,7 +19,6 @@ BuildRequires: libxml2-devel
 BuildRequires: gobject-introspection-devel
 BuildRequires: gtk+3-devel
 BuildRequires: intltool
-BuildRequires: chrpath
 BuildRequires: gtk-doc
 
 %description
@@ -80,14 +79,13 @@ The current pieces of GDL include:
 %setup -q -n %oname-%version
 
 %build
-%configure2_5x
+%configure2_5x --disable-rpath
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT %oname-1.lang
+rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 %find_lang %oname-%{api}
-chrpath -d %buildroot%_libdir/lib*.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -96,12 +94,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %oname-%{api}.lang
 %defattr(-,root,root)
 %doc README NEWS MAINTAINERS AUTHORS
-%_datadir/%oname
-
+%_datadir/gdl-%{api}
 
 %files -n %libname
 %defattr(-,root,root)
-%_libdir/girepository-1.0/Gdl-%{major}.typelib
+%_libdir/girepository-1.0/Gdl-%{api}.typelib
 %_libdir/libgdl-%{api}.so.%{major}*
 
 %files -n %libnamedev
@@ -111,5 +108,5 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/lib*.la
 %_libdir/pkgconfig/*
 %_includedir/*
-%_datadir/gtk-doc/html/gdl
-%_datadir/gir-1.0/Gdl-%{major}.gir
+%_datadir/gtk-doc/html/gdl-*
+%_datadir/gir-1.0/Gdl-%{api}.gir
