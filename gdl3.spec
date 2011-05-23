@@ -1,5 +1,5 @@
 %define oname gdl
-%define version 3.0.1
+%define version 3.0.2
 %define release %mkrel 1
 %define api 3
 %define major 1
