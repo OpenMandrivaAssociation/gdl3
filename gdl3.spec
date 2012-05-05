@@ -8,7 +8,7 @@
 
 Summary: Gnome Development/Docking library
 Name: %{oname}3
-Version: 3.2.0
+Version: 3.4.2
 Release: 1
 License: LGPLv2+
 Group: System/Libraries
@@ -41,7 +41,6 @@ This package contains the dynamic libraries from %{name}.
 %package -n %{girname}
 Group: System/Libraries
 Summary: GObject Introspection interface library for %{name}
-Requires: %{libname} = %{version}-%{release}
 
 %description -n %{girname}
 GObject Introspection interface library for %{name}.
@@ -50,6 +49,7 @@ GObject Introspection interface library for %{name}.
 Group: Development/C
 Summary: Gnome Development/Docking library headers and development libraries
 Requires: %{libname} = %{version}-%{release}
+Requires: %{girname} = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 
 %description -n %{develname}
@@ -66,14 +66,12 @@ This packages contains the headers and libraries for %{name}.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 # remove unpackaged files
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %find_lang %{oname}-%{api}
-
 
 %files -f %{oname}-%{api}.lang
 %doc README NEWS MAINTAINERS AUTHORS
