@@ -1,6 +1,6 @@
-%define oname gdl
-%define api 3
-%define major 1
+%define oname	gdl
+%define api	3
+%define major	2
 
 %define libname 	%mklibname %{oname} %api %major
 %define develname	%mklibname -d %{oname} %api
@@ -34,6 +34,7 @@ The current pieces of GDL include:
 %package -n %{libname}
 Group: System/Libraries
 Summary: Gnome Development/Docking library - shared libraries
+Suggests: %{name} = %{version}-%{release}
 
 %description -n %{libname}
 This package contains the dynamic libraries from %{name}.
@@ -74,8 +75,6 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %find_lang %{oname}-%{api}
 
 %files -f %{oname}-%{api}.lang
-%doc README NEWS MAINTAINERS AUTHORS
-%{_datadir}/gdl-%{api}
 
 %files -n %{libname}
 %{_libdir}/libgdl-%{api}.so.%{major}*
@@ -84,7 +83,7 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_libdir}/girepository-1.0/Gdl-%{api}.typelib
 
 %files -n %{develname}
-%doc ChangeLog
+%doc ChangeLog README NEWS MAINTAINERS AUTHORS
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*
 %{_includedir}/*
