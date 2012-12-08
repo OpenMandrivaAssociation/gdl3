@@ -1,6 +1,6 @@
 %define oname	gdl
 %define api	3
-%define major	2
+%define major	5
 
 %define libname 	%mklibname %{oname} %api %major
 %define develname	%mklibname -d %{oname} %api
@@ -8,7 +8,7 @@
 
 Summary: Gnome Development/Docking library
 Name: %{oname}3
-Version: 3.4.2
+Version: 3.6.2
 Release: 1
 License: LGPLv2+
 Group: System/Libraries
@@ -89,4 +89,3 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_includedir}/*
 %{_datadir}/gtk-doc/html/gdl-*
 %{_datadir}/gir-1.0/Gdl-%{api}.gir
-

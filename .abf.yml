@@ -1,2 +1,4 @@
+---
 sources:
-  "gdl-3.4.2.tar.xz:"	569858c1d596b8a0d7f6d0858ec182536f81a311
+  gdl-3.6.2.tar.xz: 04cc1ac33ef7ee792e8ff86423ba53318e55c85a
+  gdl-3.6.0.tar.xz: 345d00b1d791a14ed5735e692b57cac061e7a697
