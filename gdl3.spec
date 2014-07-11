@@ -8,7 +8,7 @@
 Summary:	Gnome Development/Docking library
 Name:		%{oname}%{api}
 Version:	3.6.2
-Release:	6
+Release:	7
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
