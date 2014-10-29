@@ -7,8 +7,8 @@
 
 Summary:	Gnome Development/Docking library
 Name:		%{oname}%{api}
-Version:	3.6.2
-Release:	7
+Version:	3.14.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
@@ -59,8 +59,7 @@ This packages contains the headers and libraries for %{name}.
 %setup -qn %{oname}-%{version}
 
 %build
-%configure2_5x \
-	--disable-static
+%configure
 
 %make
 
